@@ -13,6 +13,7 @@
             주요 내장 클래스들이 존재합니다. 새로운 객체를 생성하기 위해 new는 명령과 함께 객체를 생성하여
             사용합니다.
             자바스크립트의 if문의 사용은 자바에서의 사용과 똑같습니다. */
+            /*
             var hour = date.getHours();
             if(hour < 11){
                 alert(hour + "시 : 아침 먹을 시간입니다.");
@@ -43,10 +44,52 @@
             else if(week==4) alert('목요일');
             else if(week==5) alert('금요일');
             else if(week==6) alert('토요일');
-            else alert('일요일');
+            else alert('일요일');*/
 
-
-
+            /* 2. switch 문 
+            var input = Number(prompt('숫자를 입력하세요','숫자'));
+            switch(input % 2){
+                case 0 :
+                    alert('짝수입니다.');
+                    break;
+                case 1 :
+                    alert('홀수입니다.');
+                    break;
+                default : 
+                    alert('숫자가 아닙니다.');
+                    break;
+            }*/
+            var date = new Date();
+            /* 월과 일을 입력받아 요일을 출력하는 코드를 작성하세요
+            요일은 2021년에 한해서만 계산하되, 2021년 1월 1일은 금요일 인것을 기준으로 코드를 작성합니다.
+            if 또는 switch를 사용하세요.
+            입력을 받기위한 prompt 명령의 디폴트 값(처음에 미리 입력된 값)은 오늘 날짜의 월과 일을 표시해주세요 */
+            var mon = Number(prompt("월을 입력해주세요", date.getMonth()+1));
+            var day = Number(prompt("일을 입력해주세요", date.getDate()));
+            var D = 0;
+            switch(mon){
+                case 12 :  D += 30;
+                case 11 : D += 31;
+                case 10 : D += 30;
+                case 9 : D += 31;
+                case 8 : D += 31;
+                case 7 : D += 30;
+                case 6 : D += 31;
+                case 5 : D += 30;
+                case 4 : D += 31;
+                case 3 : D += 28;
+                case 2 : D += 31; 
+                default : break;
+            }
+            D += day;
+            D = (D % 7);
+            if(D == 1) alert("금요일입니다.");
+            else if(D == 2) alert("토요일입니다.");
+            else if(D == 3) alert("일요일입니다.");
+            else if(D == 4) alert("월요일입니다.");
+            else if(D == 5) alert("화요일입니다.");
+            else if(D == 6) alert("수요일입니다.");
+            else alert("목요일입니다.");
         </script>
     </head>
     <body>
