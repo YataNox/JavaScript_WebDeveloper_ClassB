@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>04_Loop.html</title>
+        <script>
+            /* 1. while 반복문 
+            // 예제1-반복 실행 while문
+            var value = 1;
+            var s = "";
+            while(value < 5){
+                alert(value + "번째 반복");
+                s = s + value + "번째 반복\n";
+                value++;
+            }
+            alert(s);*/
+
+            // 예제2-반복 실행 while문
+            var value = 0;
+            var startTime = new Date().getTime(); // 오늘의 날짜 시간의 밀리초 환산 값
+            // alert(startTime);
+            endTime = startTime + 1000;
+            while(new Date().getTime() < endTime){
+                value++;
+            } // value에는 현재시간이 밀리초로 환산되어 endTime 보다 작은 동안 몇 번 반복 실행되는지 횟수가 저장될 예정입니다.
+            alert("시작시간 : " + startTime);
+            alert("종료시간 : " + endTime);
+            alert("반복횟수 : " + value);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
