@@ -21,6 +21,21 @@
             }else{
                 alert(hour + "시 : 저녁 먹을 시간입니다.");
             }
+
+            var min = date.getMinutes();
+            alert(min);
+            var sec = date.getSeconds();
+            alert(sec);
+            var year = date.getFullYear();
+            // getYear() 함수는 원래 년도에서 1990년을 뺀 값을 리턴함
+            // getYear() 함수는 웹 표준에서 제거(Deprecated)되었음
+            // getFullYear()로 대체 되어 사용 중
+            alert(year);
+            var month = date.getMonth();
+            alert(month+1);
+            var date1 = date.getDate();
+            alert(date1);
+
         </script>
     </head>
     <body>
