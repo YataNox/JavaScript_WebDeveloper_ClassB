@@ -35,6 +35,17 @@
             alert(month+1);
             var date1 = date.getDate();
             alert(date1);
+            var week = date.getDay();
+            // 0 : 일요일 ~ 6 : 토요일
+            if(week==1) alert('월요일');
+            else if(week==2) alert('화요일');
+            else if(week==3) alert('수요일');
+            else if(week==4) alert('목요일');
+            else if(week==5) alert('금요일');
+            else if(week==6) alert('토요일');
+            else alert('일요일');
+
+
 
         </script>
     </head>
