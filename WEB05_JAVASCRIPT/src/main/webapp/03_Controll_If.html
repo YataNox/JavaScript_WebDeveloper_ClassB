@@ -5,6 +5,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>03_Controll_If.html</title>
+        <script>
+            /* 1. if 조건문 */
+            var date = new Date();
+            /* 
+            자바스크립트의 내장 라이브러리 중 날짜 객체를  생성하는 명령. 자바스크립트에도 자바와 같이 활용할
+            주요 내장 클래스들이 존재합니다. 새로운 객체를 생성하기 위해 new는 명령과 함께 객체를 생성하여
+            사용합니다.
+            자바스크립트의 if문의 사용은 자바에서의 사용과 똑같습니다. */
+            var hour = date.getHours();
+            if(hour < 11){
+                alert(hour + "시 : 아침 먹을 시간입니다.");
+            }else if(hour < 15){
+                alert(hour + "시 : 점심 먹을 시간입니다.");
+            }else{
+                alert(hour + "시 : 저녁 먹을 시간입니다.");
+            }
+        </script>
     </head>
     <body>
         
