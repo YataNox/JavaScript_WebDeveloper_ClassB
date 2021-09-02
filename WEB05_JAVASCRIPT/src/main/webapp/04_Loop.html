@@ -15,7 +15,7 @@
                 s = s + value + "번째 반복\n";
                 value++;
             }
-            alert(s);*/
+            alert(s);
 
             // 예제2-반복 실행 while문
             var value = 0;
@@ -27,7 +27,15 @@
             } // value에는 현재시간이 밀리초로 환산되어 endTime 보다 작은 동안 몇 번 반복 실행되는지 횟수가 저장될 예정입니다.
             alert("시작시간 : " + startTime);
             alert("종료시간 : " + endTime);
-            alert("반복횟수 : " + value);
+            alert("반복횟수 : " + value);*/
+
+            /* 2. do~while 반복문 */
+            var value = 10;
+            do{
+                alert(value+"번째 반복");
+                value++;
+            }while(value <= 5);
+            // 반복실행의 조건이 처음부터 False가 되어도 한 번은 실행하는 특징이 있습니다.
         </script>
     </head>
     <body>
