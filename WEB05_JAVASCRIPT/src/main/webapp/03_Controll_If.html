@@ -66,30 +66,43 @@
             입력을 받기위한 prompt 명령의 디폴트 값(처음에 미리 입력된 값)은 오늘 날짜의 월과 일을 표시해주세요 */
             var mon = Number(prompt("월을 입력해주세요", date.getMonth()+1));
             var day = Number(prompt("일을 입력해주세요", date.getDate()));
+            var year = date.getFullYear();
+            var mond = [0, 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
             var D = 0;
+
+            for(var i = 1; i < year; i++){
+                if(((i % 4 == 0) && (i % 100 != 0)) || i % 400 == 0){
+                    D += 366;
+                }
+                else
+                {
+                    D += 365;
+                }
+            }
+
             switch(mon){
-                case 12 :  D += 30;
-                case 11 : D += 31;
-                case 10 : D += 30;
-                case 9 : D += 31;
-                case 8 : D += 31;
-                case 7 : D += 30;
-                case 6 : D += 31;
-                case 5 : D += 30;
-                case 4 : D += 31;
-                case 3 : D += 28;
-                case 2 : D += 31; 
+                case 12 :  D += mond[12];
+                case 11 : D += mond[11];
+                case 10 : D += mond[10];
+                case 9 : D += mond[9];
+                case 8 : D += mond[8];
+                case 7 : D += mond[7];
+                case 6 : D += mond[6];
+                case 5 : D += mond[5];
+                case 4 : D += mond[4];
+                case 3 : D += mond[3];
+                case 2 : D += mond[2];
                 default : break;
             }
             D += day;
             D = (D % 7);
-            if(D == 1) alert("금요일입니다.");
-            else if(D == 2) alert("토요일입니다.");
-            else if(D == 3) alert("일요일입니다.");
-            else if(D == 4) alert("월요일입니다.");
-            else if(D == 5) alert("화요일입니다.");
-            else if(D == 6) alert("수요일입니다.");
-            else alert("목요일입니다.");
+            if(D == 1) alert("월요일입니다.");
+            else if(D == 2) alert("화요일입니다.");
+            else if(D == 3) alert("수요일입니다.");
+            else if(D == 4) alert("목요일입니다.");
+            else if(D == 5) alert("금요일입니다.");
+            else if(D == 6) alert("토요일입니다.");
+            else alert("일요일입니다.");
         </script>
     </head>
     <body>
