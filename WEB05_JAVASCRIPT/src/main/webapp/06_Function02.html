@@ -8,14 +8,56 @@
         <script>
             function add(a, b){
                 c = a + b;
-                document.write(a + " + " + b + " = " + c);
+                document.write(a + " + " + b + " = " + c + "<br>");
                 return c;
             }
             // 1. 자바스크립트 함수의 전달인수와 매개변수는 자바와 비슷하지만 매개변수의 자료형을 표시하지 않고
             //    변수의 이름만 명시하고 사용합니다. 리턴 값의 사용은 자바와 똑같습니다.
+            var result = add(10,20);
+
+            // 2. 매개변수의 사용
+            // 생성되어 있는 매개변수보다 전달인수의 갯수가 많으면 해당 전달 인수는 무시됩니다.
+            function f(x){
+                document.write(x + " * " + x + " = " + (x*x) + "<br>");
+                return x*x;
+            }
+            result = f(5,3); // 두 번쨰 전달인수는 무시한다.
+
+            // 3. 함수의 오버로딩 사용 예
+            // 배열을 만들어주는 Array() 함수의 다양한 사용(오버로딩)
+            // Array() 함수는 기본적으로 매개변수에 아무것도 입력하지 않게 정의됨.
+            var array1 = Array(); // 빈 배열을 만듦.
+            var array2 = Array(10); // 매개변수만큼 크기를 가지는 배열을 만듦.
+            var array3 = Array(25, 35, 45, 55); // 매개변수를 배열로 만듦.
+            document.write("<h1>" + array1 + "<br>" + array2 + "<br>" + array3 + "</h1>");
+
+            // 4. arguments 변수 사용 예제
+            function sumAll(){
+                document.write("<h1>" + typeof(arguments) + " : " + arguments.length + "</h1>");
+                var s = "";
+                for(var i in arguments){
+                    s = s + arguments[i] + " ";
+                }
+                document.write("<h1>" + s + "</h1>")
+            }
+            // arguments : 전달된 인수들을 arguments 라는 매개 변수로 받아서 객체 또는 배열처럼 사용할 수 있게합니다.
+            sumAll(1,2,3,4,5);
+            sumAll(1,2,3,4,5,6,7,8,9);
+
+            // 입력 매개변수를 모두 더해 리턴 또는 출력하는 함수
+            function addAll(){
+                var result = 0;
+                for(var i in arguments)
+                {
+                    result += arguments[i];
+                }
+                document.write("sum = " + result + "<br>");
+                return i;
+            }
+            addAll(1,2,3,4,5,6,7,8,9);
         </script>
     </head>
     <body>
-        
+
     </body>
 </html>
