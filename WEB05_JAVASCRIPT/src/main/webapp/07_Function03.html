@@ -8,7 +8,7 @@
         <script>
             // 함수의 재정의 : 함수 호출 전 마지막에 저장된 함수가 실행됩니다.
                 // 1. 익명함수의 재정의
-                var func = function(){alert('익명함수 1');}
+                var func = function(){document.write('<h1>익명함수 1</h1>');}
                 func(); // 익명함수 1
                 var func = function(){alert('익명함수 2');}
                 func(); // 익명함수 2
@@ -16,7 +16,7 @@
                 // 2. 선언적 함수의 재정의
                 // - 웹브라우저는 script태그 내부의 내용을 읽기 전에 선언적함수를 먼저 읽습니다.
                 // - 마지막에 정의된 move함수가 세 군데의 호출부분에서 실행됩니다.
-                function move(){alert('move() 함수 호출.');}
+                function move(){document.write('<h1>move() 함수 호출.</h1>');}
                 move(); // move() 함수 호출
                 function move(){alert('move() 함수1 호출.');}
                 move(); // move() 함수1 호출
