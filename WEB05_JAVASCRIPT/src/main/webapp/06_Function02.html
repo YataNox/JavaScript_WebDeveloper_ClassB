@@ -55,6 +55,38 @@
                 return i;
             }
             addAll(1,2,3,4,5,6,7,8,9);
+
+            // 5. 리턴 값이 익명함수인 경우
+            function returnFunc(){
+                return function(){
+                    document.write("<h1>리턴된 함수의 출력</h1>");
+                };
+            }
+            // returnTest()함수 호출 후 리턴받은 익명함수를 value 변수에 저장
+            var value = returnFunc();
+            value();
+            // 위 아래의 동작은 같습니다.
+            /* var value1 = function(){
+                document.write("<h1>리턴된 함수의 출력</h1>");
+            }
+            value1(); 
+            */
+
+            // 6. 익명함수를 함수의 전달인수로 전달하는 경우
+            function varFunction(otherFunction){
+                // 매개변수에 익명함수가 전달되었다라는 말은 그 변수에 괄호를 붙여서 함수를 호출 또는 실행할 수 있다는 말입니다.
+                for(var i = 0; i < 5; i++){
+                    otherFunction();
+                }
+            }
+            var func = function(){
+                document.write('<h1>Hello JavaScript...!</h1>');
+            }
+            varFunction(func);
+            // 익명함수의 매개변수 전달 또는 리턴은 함수의 몸체가 직접 전달 또는 return 되는것이 특징입니다.
+            // 더러는 변수에 저장 후 변수를 전달인수 또는 return 값으로 하는 경우도 잇지만 변수 사용을 하나라도 줄이고자 하는
+            // 의도에서 함수의 내용이 너무 길거나 많지 않다면 직접 해당 자리에 익명함수를 기술해주는게 보통입니다.
+            varFunction(function(){document.write('<h1>Hello JavaScript...!</h1>');});
         </script>
     </head>
     <body>
