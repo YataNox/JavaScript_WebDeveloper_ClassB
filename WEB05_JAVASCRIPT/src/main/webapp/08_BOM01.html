@@ -43,6 +43,18 @@
             window.setInterval(function(){
                 child.moveBy(50, 50)
             }, 500);
+
+            function abc(){
+                child.moveBy(50, 50);
+            }
+            // 선언적 함수를 만들어서 setInverval 안에 익명함수 대신 이름을 넣기도 합니다.
+            // window.setInterval(abc(), 500);
+
+            var output = '';
+            for(var key in window){
+                output += '<h2>※ ' + key + ' : ' + window[key] + '</h2>';
+            }
+            document.write(output);
         </script>
     </head>
     <body>
