@@ -6,10 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>16_ImageControll05.html</title>
         <script>
-            
+            // 1초에 한 번씩 이미지가 롤링되게 코딩하되, 이미지 위에 마우스가 올라가면 롤링 멈춤,
+            // 마우스가 빠져나가면 롤링 다시 시작
+            var interval
+            var number = 2;
+            function changeImg(){
+                interval = setInterval(function(){
+                    var num = "images/" + number + ".jpg";
+                    document.getElementById("target").src = num;
+                    number++;
+                    if(number == 11)
+                    {
+                        number = 1;
+                    }
+                }, 1000);
+            }
+            function stopimg(){
+                clearInterval(interval);
+            }
         </script>
     </head>
-    <body>
-        
+    <body onload="changeImg()">
+        <img src="images/1.jpg" id="target" onmouseover="stopimg()" onmouseout="changeImg()">
     </body>
 </html>
