@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>20_ImageControll09.html</title>
+        <style>
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        .view{
+            position: relative; 
+            width: 600px; height: 600px; 
+            margin: 0 auto; border: 1px dashed red;
+            overflow: hidden;
+        }
+        .prod_img{
+            position: absolute;
+            left: 0; top: 0px;
+            background-color: silver;
+            width: 600px; height: 400px;
+            font-size: 130%;
+            font-weight: bold;
+            color: white;
+            line-height: 400px;
+            text-align: center;
+        }
+        .box1{
+            position: absolute;
+            bottom: 0px; border-radius: 100px; overflow: hidden; 
+            width: 198px; height: 198px;
+        }
+        .box2{
+            position: absolute;
+            width: 600px; height: 400px;
+            left: -600px; top: 0;
+            transition-duration: 1s;
+        }
+        #btn_img1{left:0px}
+        #btn_img2{left:200px}
+        #btn_img3{left:400px}
+        </style>
+        <script>
+            // btn_img1,2,3 중 하나를 클릭하면, 해당 view_img가 화면에 나타나게 코딩해주세요
+            function imove(n){
+                for(var i = 1; i <= 3; i++){
+                    document.getElementById("img" + i).style.left="-600px";   
+                }
+                document.getElementById("img" + n).style.left="0px";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="view">
+            <div class="prod_img">
+                이미지에 마우스를 올리면 큰 이미지를 볼 수 있습니다.
+            </div>
+            <div class="box1" id="btn_img1" onclick="imove(1)"><img src="images/prod1.jpg" width="198px" height="198px"></div>
+            <div class="box1" id="btn_img2" onclick="imove(2)"><img src="images/prod2.jpg" width="198px" height="198px"></div>
+            <div class="box1" id="btn_img3" onclick="imove(3)"><img src="images/prod3.jpg" width="198px" height="198px"></div>
+            <div class="box2" id="img1"><img src="images/prod1.jpg" width="600px" height="400px"></div>
+            <div class="box2" id="img2"><img src="images/prod2.jpg" width="600px" height="400px"></div>
+            <div class="box2" id="img3"><img src="images/prod3.jpg" width="600px" height="400px"></div>
+        </div>
+    </body>
+</html>
