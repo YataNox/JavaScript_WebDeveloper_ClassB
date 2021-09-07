@@ -27,14 +27,14 @@
                 clearInterval(interval2);
                 interval = setInterval(function(){
                     angle += 20;
-                    document.getElementById("a1").style.webkitTransform="rotate(" + angle + "deg)";
+                    document.getElementById("a1").style.webkitTransform="rotate(" + (angle%360) + "deg)";
                 }, 1000);
             }
             function changeImg2(){
                 clearInterval(interval);
                 interval2 = setInterval(function(){
                     angle -= 20;
-                    document.getElementById("a1").style.webkitTransform="rotate(" + angle + "deg)";
+                    document.getElementById("a1").style.webkitTransform="rotate(" + (angle%360) + "deg)";
                 }, 1000);
             }
         </script>
