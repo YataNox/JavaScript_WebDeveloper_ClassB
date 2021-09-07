@@ -5,11 +5,43 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>17_ImageControll06.html</title>
+        <style>
+            #a1{
+                position : absolute;
+                width: 170px; height:255px;
+                border: 2px solid black;
+                top: 100px; left: 100px;
+            }
+        </style>
         <script>
-            
+            var angle = 0;
+            /* function rotate(){
+                angle += 20;
+                document.getElementById("a1").style.webkitTransform="rotate(" + angle + "deg)";
+            } */
+            // setInterval을 이용하서 1초에 20도씩 회전하게 해주세요. 마우스를 올리면 반대방향으로 회전,
+            // 마우스가 빠져나가면 원래방향으로 회전
+            var interval, interval2;
+            var number = 2;
+            function changeImg(){
+                clearInterval(interval2);
+                interval = setInterval(function(){
+                    angle += 20;
+                    document.getElementById("a1").style.webkitTransform="rotate(" + angle + "deg)";
+                }, 1000);
+            }
+            function changeImg2(){
+                clearInterval(interval);
+                interval2 = setInterval(function(){
+                    angle -= 20;
+                    document.getElementById("a1").style.webkitTransform="rotate(" + angle + "deg)";
+                }, 1000);
+            }
         </script>
     </head>
-    <body>
-        
+    <body onload="changeImg()">
+        <div id='a1' onmouseover="changeImg2()" onmouseout="changeImg()">
+            <img src="images/1.jpg">
+        </div>
     </body>
 </html>
