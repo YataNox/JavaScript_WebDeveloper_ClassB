@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>24_ImageControll13.html</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #base{
+                position: relative;
+                width: 600px; height: 400px;
+                margin: 0 auto;
+                border: 1px dashed black;
+                overflow: hidden;
+            }
+            #view{
+                position: absolute;
+                width: 4800px; height: 400px;
+                left: 0; top: 0;
+                border: 1px dashed red; 
+                overflow: hidden;
+                transition: 0.3s;
+            }
+            img{
+                width: 600px; height: 400px;
+            }
+            #lbtn{
+                position: absolute; left: 0px; bottom: 0px;
+                width: 50px;height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-image: url(images/ico_movie_171115.png);
+                background-position: -60px -460px;
+            }
+            #rbtn{
+                position: absolute; right: 0px; bottom: 0px;
+                width: 50px;height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-image: url(images/ico_movie_171115.png);
+                background-position: 0px -460px;
+            }
+        </style>
+        <script>
+            var Px = 0
+            function move(n){
+                Px += -n * 600;
+                /* 화면이 범위 밖으로 나가지 않게 막아두기 */
+                if(Px >= 0)
+                    Px = 0;
+                else if(Px <= -4200)
+                    Px = -4200;
+                document.getElementById("view").style.left = Px + "px";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="view">
+                <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+            </div>
+             <div id="lbtn" onclick="move(-1)"></div>
+             <div id="rbtn" onclick="move(1)"></div>
+        </div>
+    </body>
+</html>
