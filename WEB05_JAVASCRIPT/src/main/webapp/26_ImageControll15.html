@@ -100,7 +100,15 @@
             }
         }
         function move(n){
-            Xpx += -n * 600;
+            if(n == 9){
+                Xpx -= -600;
+            }
+            else if(n == 10){
+                Xpx -= 600;
+            }
+            else{
+                Xpx = -(n-1) * 600;
+            }
             /* 화면이 범위 밖으로 나가지 않게 막아두기 */
             if(Xpx >= 0)
                 Xpx = 0;
@@ -130,8 +138,8 @@
                 </ul>
                 <div id="btn" onclick="start_stop()">■</div>
             </div>
-            <div id="lbtn" onclick="move(-1)"></div>
-            <div id="rbtn" onclick="move(1)"></div>
+            <div id="lbtn" onclick="move(9)"></div>
+            <div id="rbtn" onclick="move(10)"></div>
         </div>
     </body>
 </html>
