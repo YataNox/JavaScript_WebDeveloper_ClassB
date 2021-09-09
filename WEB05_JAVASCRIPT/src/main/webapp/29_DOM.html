@@ -24,9 +24,26 @@
             - 동적으로 문서 객체를 생성한다는 의미
                 : 자바스크립트를 사용해 원래 HTML 페이지에는 없는 문서 객체(태그 등)을 생성하는 것.
             */
+           
+            // 문서 객체의 변경
+            function changeHeader(){
+                document.getElementById("header_1").innerHTML = '펭귄';
+                // var header = document.getElementById("header_1");
+                // header.innerHTML = "펭귄";
+                // 문서 객체를 변수에 저장하고 변수.innerHTML사용이 가능합니다. 그외 메소드들도 변수와 함께 사용 가능합니다.
+            }
+
+            // 문서의 객체 추가
+            // 이미지 태그 생성 - 텍스트 노드를 갖지 않는 노드 생성
+            // 문서 객체의 innerHTML 속성 사용해 객체 생성
+            // 문서 객체 가져오기1 - 웹페이지에 이미 존재하는 HTML 태그를 스크립트로 가져오는 방법
+            // 문서 객체 가져오기2
         </script>
     </head>
     <body>
-        
+        <h1 id="header_1">HEADER-1</h1><img src="images/Penguins.jpg" width="300px">
+        <div><h1 id="header_2">HEADER-2</h1></div>
+        <h1 id="clock"></h1>
+        <input type="button" value="제목변경" onclick="changeHeader()">
     </body>
 </html>
