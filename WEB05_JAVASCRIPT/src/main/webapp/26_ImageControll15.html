@@ -6,7 +6,132 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>26_ImageControll15.html</title>
     </head>
-    <body>
-        
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #base{
+            position: relative;
+            width: 600px; height: 400px;
+            margin: 0 auto;
+            border: 1px dashed black;
+            overflow: hidden;
+        }
+        #view{
+            position: absolute;
+            width: 4800px; height: 400px;
+            left: 0; top: 0;
+            border: 1px dashed red; 
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        img{
+            width: 600px; height: 400px;
+        }
+        #remot{
+            position: relative;
+            width: 220px; height: 50px;
+            border: 1px solid white;
+            margin: 0 auto;
+            top: 350px;
+        }
+        #remot ul{
+            position: relative;
+            float: left;
+            list-style: none;
+            margin: 0px; padding: 0px;
+        }
+        #remot ul li{
+            float: left;
+            width: 14px; height: 14px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 18px 5px;
+        }
+        #remot div{
+            position: relative;
+            float: left;
+            width: 20px; height: 25px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 13px auto;
+            line-height: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #lbtn{
+            position: absolute; left: 0px; bottom: 0px;
+            width: 50px;height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-image: url(images/ico_movie_171115.png);
+            background-position: -60px -460px;
+        }
+        #rbtn{
+            position: absolute; right: 0px; bottom: 0px;
+            width: 50px;height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-image: url(images/ico_movie_171115.png);
+            background-position: 0px -460px;
+        }
+    </style>
+    <script>
+        var val;
+        var Xpx = 0;
+        var play = false;
+        function start_stop(){
+            if(play){ // play -> stop
+                document.getElementById("btn").innerHTML="▶";
+                // #btn 태그가 갖는 글자를 대입하는 글자로 바꿉니다.
+                clearInterval(val);
+                play = false;
+            }
+            else{ // stop -> play
+                document.getElementById("btn").innerHTML="■";
+                val = setInterval(function(){
+                    document.getElementById("view").style.left=Xpx+"px";
+                    Xpx-=600;
+                    if(Xpx == -4800)
+                    Xpx = 0;
+                }, 1000);
+                play = true;
+            }
+        }
+        function move(n){
+            Xpx += -n * 600;
+            /* 화면이 범위 밖으로 나가지 않게 막아두기 */
+            if(Xpx >= 0)
+                Xpx = 0;
+            else if(Xpx <= -4200)
+                Xpx = -4200;
+                document.getElementById("view").style.left = Xpx + "px";
+        }
+    </script>
+    <body onload="start_stop()">
+        <!-- 버튼은 <,1,2,3,4,5,6,7,8,>, ▶/■ 총 11개의 버튼 배치 -->
+            <!-- < : 한칸 왼쪽 이미, >: 한 칸 오른쪽 이미지, 번호는 각 해당 이미지
+             ▶/■ : 자동 멈춤/시작 --> 
+        <div id="base">
+            <div id="view">
+                <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+            </div>
+            <div id="remot">
+                <ul>
+                    <li onclick="move(1)"></li>
+                    <li onclick="move(2)"></li>
+                    <li onclick="move(3)"></li>
+                    <li onclick="move(4)"></li>
+                    <li onclick="move(5)"></li>
+                    <li onclick="move(6)"></li>
+                    <li onclick="move(7)"></li>
+                    <li onclick="move(8)"></li>
+                </ul>
+                <div id="btn" onclick="start_stop()">■</div>
+            </div>
+            <div id="lbtn" onclick="move(-1)"></div>
+            <div id="rbtn" onclick="move(1)"></div>
+        </div>
     </body>
 </html>
