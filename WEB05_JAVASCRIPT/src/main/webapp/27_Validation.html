@@ -5,8 +5,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>27_Validation.html</title>
+        <style>
+            #wrap{
+                width: 970px;
+                margin: 0 auto;
+            }
+            h1{
+                color: green;
+            }
+            table{
+                width: 100%; border-collapse: collapse;
+                font-size: 12px; line-height: 24px;
+            }
+            table td, th{
+                border: 1px solid #d3d3d3;
+                padding: 5px;
+            }
+            th{
+                background-color: yellowgreen;
+            }
+        </style>
     </head>
     <body>
-        
+        <div id="wrap" align="center">
+            <h1>사용자 등록</h1>
+            <form name="frm" method="get" action="27_Validation_Result.html">
+                <table>
+                    <tr>
+                        <th>&nbsp;아이디</th>
+                        <td> 
+                            &nbsp;<input type="text">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
 </html>
