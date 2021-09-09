@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author1" content="Kim Woo Jin">
+    <meta name="author2" content="Kim Tae Hyung">
+    <meta name="author3" content="Park Cheol min">
+    <meta name="Subject" content="Undefined">
+    <link rel="stylesheet" href="Main_Layout_Design.css">
+    <title>Main Page</title>
+  </head>
+  <body onload="rotate()">
+    <div class="Area">
+      <header>
+        <div class="header_grid_logo">
+        <a href="first_iframe.html" target="Section_frame"><img id="slide" src="mainLogo.jpg" alt="Logo Loding Fail"></a>
+        </div>
+
+        <div class="header_grid_mainTitle">
+          <!-- <h1><kimujin>W</kimujin>.<pcm>C</pcm>.<kth>T</kth><br> HTML Project</h1> -->
+          <img src="title.jpg">
+        </div>
+
+        <div class="header_grid_loginAndSignUp">
+          <form id="LMf1" action="LoginMain_Layout.html" method="get" onsubmit="return checkLogin()">
+            <table style="height: 100%;">
+              <tr style="height: 100%;">
+                <td>ID</td>
+                <td><input id="ID" type="email" name="webId" value="" size="19" placeholder="이메일 형식으로 입력" required></td>
+                <td rowspan="2"><input style="height: 100%;" type="submit" name="webSm" value="로그인"></td>
+              </tr>
+              <tr>
+                <td>PW</td>
+                <td><input id="PW" type="password" name="webPw" value="" size="19" placeholder="비밀번호" required></td>
+              </tr>
+              <tr>
+                <td><a href="signUpPage.html" target="Section_frame" style="float: left;"><input type="button" name="SignUp" value="회원가입"></a></td>
+                <td colspan="2"><a href="findId.html" target="Section_frame" style="float: right;"><input type="button" value="아이디/비밀번호 찾기"></a></td>
+              </tr>
+            </table>
+          </form>
+
+        </div>
+      </header>
+
+      <nav class="cover">
+        <h1>메뉴</h1>
+        <!-- 각 페이지 이동 버튼 -->
+        <ul>
+          <li><a href="공지사항Layout.html" target="Section_frame">공지사항</a></li>
+          <li id="ib1"><a href="#">Galaxy</a></li>
+          <li id="ib2"><a href="#">Apple</a></li>
+          <li><a href="자유게시판Logout.html" target="Section_frame">자유게시판</a></li>
+          <li><a href="first_iframe.html" onclick="alert1()" target="Section_frame">자료실</a></li>
+          <li><a href="참고사이트Layout.html" target="Section_frame">관련사이트</a></li>
+          <li><a href="developerinfor.html" target="Section_frame">제작자소개</a></li>
+        </ul>
+
+      </nav>
+
+      <section>
+        <iframe id="if1" src="first_iframe.html" width="100%" height="100%" name="Section_frame"></iframe>
+      </section>
+
+      <footer>
+        <small>Main Producer: <a href="mailto:rladnwls0523@naver.com">Kim woo jin</a> <br>
+               Sub Producer : <a href="mailto:qkrcjfals16@naver.com">Park cheol min</a>,
+               <a href="mailto:rlaxogud30@naver.com">Kim tae heong</a></small>
+      </footer>
+    </div>
+    <script type="text/javascript">
+    let c = 0;
+    let cc = 0;
+    let b = document.getElementById('ib1');
+    let b2 = document.getElementById('ib2');
+    let bp = b.parentElement;
+    let bp2 = b2.parentElement;
+    let f = true;
+    //81~134 Line Galary 버튼
+    b.onclick = function addmenu1(){
+      if(cc === 1)
+      {
+        for(let i = 0; i<2; i++)
+        {
+          bp2.removeChild(b2.nextElementSibling);
+        }
+        cc = 0;
+      }
+      if(c === 0){
+        let btn0 = document.createElement('a');
+        let btn1 = document.createElement('li');
+        let btn2 = document.createElement('a');
+        let btn3 = document.createElement('li');
+        let btn4 = document.createElement('a');
+        let btn5 = document.createElement('li');
+        btn0.setAttribute('href',"gs.html"); // S
+        btn0.setAttribute('target', "Section_frame");
+        btn2.setAttribute('href',"gnote.html"); // Note
+        btn2.setAttribute('target', "Section_frame");
+        btn4.setAttribute('href',"gz.html"); // Z
+        btn4.setAttribute('target', "Section_frame");
+        let text = document.createTextNode("S");
+        let text2 = document.createTextNode("Note");
+        let text3 = document.createTextNode("Z");
+        btn0.appendChild(text);
+        btn1.appendChild(btn0);
+        btn1.setAttribute('class',"mb1");
+        btn2.appendChild(text2);
+        btn3.appendChild(btn2);
+        btn3.setAttribute('class',"mb1");
+        btn4.appendChild(text3);
+        btn5.appendChild(btn4);
+        btn5.setAttribute('class',"mb1");
+        bp.insertBefore(btn1, b.nextElementSibling);
+        bp.insertBefore(btn3, b.nextElementSibling);
+        bp.insertBefore(btn5, b.nextElementSibling);
+        c = 1;
+        let mb = document.getElementsByClassName('mb1');
+        mb[0].onclick = function remove(){
+          for(let i = 0; i<3; i++)
+          {
+            bp.removeChild(b.nextElementSibling);
+          }
+          c = 0;
+        }
+        mb[1].onclick = function remove(){
+          for(let i = 0; i<3; i++)
+          {
+            bp.removeChild(b.nextElementSibling);
+          }
+          c = 0;
+        }
+        mb[2].onclick = function remove(){
+          for(let i = 0; i<3; i++)
+          {
+            bp.removeChild(b.nextElementSibling);
+          }
+          c = 0;
+        }
+      }
+    }
+
+    //137~174 Line Apple 버튼
+    b2.onclick = function addmenu1(){
+      if(c === 1)
+      {
+        for(let i = 0; i<3; i++)
+        {
+          bp.removeChild(b.nextElementSibling);
+        }
+        c = 0;
+      }
+      if(cc === 0){
+        let btn0 = document.createElement('a');
+        let btn1 = document.createElement('li');
+        let btn2 = document.createElement('a');
+        let btn3 = document.createElement('li');
+        btn0.setAttribute('href',"iphone.html"); // IPhone
+        btn0.setAttribute('target', "Section_frame");
+        btn2.setAttribute('href',"ipad.html"); // Ipad
+        btn2.setAttribute('target', "Section_frame");
+        let text = document.createTextNode("IPHONE");
+        let text2 = document.createTextNode("IPAD");
+        btn0.appendChild(text);
+        btn1.appendChild(btn0);
+        btn1.setAttribute('class',"mb2");
+        btn2.appendChild(text2);
+        btn3.appendChild(btn2);
+        btn3.setAttribute('class',"mb2");
+        bp2.insertBefore(btn1, b2.nextElementSibling);
+        bp2.insertBefore(btn3, b2.nextElementSibling);
+        cc = 1;
+        let mb = document.getElementsByClassName('mb2');
+        mb[0].onclick = function remove(){
+          for(let i = 0; i<2; i++)
+          {
+            bp2.removeChild(b2.nextElementSibling);
+          }
+          cc = 0;
+        }
+        mb[1].onclick = function remove(){
+          for(let i = 0; i<2; i++)
+          {
+            bp2.removeChild(b2.nextElementSibling);
+          }
+          cc = 0;
+        }
+      }
+    }
+
+      function checkLogin(){
+        let cid = document.getElementById('ID').value;
+        if(window.localStorage.key(0)===null){
+          alert("회원정보 없음");
+          return false;
+        }
+        else{
+          let c = 0;
+          for(let i = 0; i<window.localStorage.length; i++){
+            if(cid !== window.localStorage.key(i)){
+              c++;
+            }
+          }
+          if(c === window.localStorage.length){
+            alert("가입되지 않은 회원입니다.");
+            return false;
+          }
+        }
+        if(document.getElementById('PW').value === window.localStorage.getItem(cid).split(',')[0])
+        {
+          for(let i = 0; i < window.localStorage.length; i++)
+          {
+            if(cid !== window.localStorage.key(i))
+            {
+              if(i === window.localStorage.length-1){
+                alert("해당 사용자가 없습니다.");
+                return false;
+              }
+              continue;
+            }
+            else{
+              return true;
+            }
+          }
+          return true;
+        }
+        else {
+          alert("사용자 정보가 틀렸습니다.");
+          return false;
+        }
+      }
+
+      var img = new Array();
+      img[0] = new Image(); img[0].src="mainLogo.jpg";
+      img[1] = new Image(); img[1].src="title2.jpg";
+      var interval=100;
+      var n=0;
+      var imgs = new Array("mainLogo.jpg","title2.jpg");
+      function rotate()
+      {
+        if(navigator.appName=="Netscape" && document.getElementById)
+        {
+          let a = document.getElementById("slide");
+          a.setAttribute('height', "120px");
+          a.setAttribute('width', "180px");
+          document.getElementById("slide").src=imgs[n];
+        }
+        else document.images.slide.src=imgs[n];
+        (n==(imgs.length-1))?n=0:n++;
+        setTimeout("rotate()",interval);
+      }
+
+      function alert1(){
+        alert("로그인 후 이용해주세요.");
+      }
+    </script>
+  </body>
+</html>

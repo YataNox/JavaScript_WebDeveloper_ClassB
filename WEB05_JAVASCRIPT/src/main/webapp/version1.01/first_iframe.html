@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>first</title>
+    <style media="screen">
+      html,body{
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+      }
+      img{
+        width: 700px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body onload="rotate()">
+    <script type="text/javascript">
+      var img=new Array();
+      img[0]=new Image(); img[0].src="https://blog.kakaocdn.net/dn/uqJpZ/btqyenBIIXx/mh1Cc5F023UGpfQTFBdqV0/img.jpg";
+      img[1]=new Image(); img[1].src="https://blog.kakaocdn.net/dn/dg5fpM/btqwMdBY480/yBALyxESNGxdULrhjEW1L1/img.jpg";
+      img[2]=new Image(); img[2].src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbEQKAo%2Fbtqyzv1iSag%2F24DDBQiCLFp7Ay4SnQ6xb1%2Fimg.jpg";
+      var interval=1500;
+      var n=0;
+      var imgs = new Array("https://blog.kakaocdn.net/dn/uqJpZ/btqyenBIIXx/mh1Cc5F023UGpfQTFBdqV0/img.jpg","https://blog.kakaocdn.net/dn/dg5fpM/btqwMdBY480/yBALyxESNGxdULrhjEW1L1/img.jpg","https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbEQKAo%2Fbtqyzv1iSag%2F24DDBQiCLFp7Ay4SnQ6xb1%2Fimg.jpg");
+      function rotate()
+      {
+        if(navigator.appName=="Netscape" && document.getElementById)
+        {
+        document.getElementById("slide").src=imgs[n];
+        }
+        else document.images.slide.src=imgs[n];
+        (n==(imgs.length-1))?n=0:n++;
+        setTimeout("rotate()",interval);
+      }
+    </script>
+    <center><br/><br/>
+    <img src="https://blog.kakaocdn.net/dn/uqJpZ/btqyenBIIXx/mh1Cc5F023UGpfQTFBdqV0/img.jpg" id="slide">
+    </body>
+</html>

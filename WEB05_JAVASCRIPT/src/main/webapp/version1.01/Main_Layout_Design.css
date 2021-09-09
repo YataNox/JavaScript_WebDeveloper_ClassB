@@ -1,0 +1,239 @@
+/* Tag Css */
+html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  padding-left: 0;
+  margin-left: 0;
+  width: 100%;
+  height: 100%;
+}
+header{
+  /* background-color: skyblue; */
+  display: grid;
+  grid-template:
+  "H_Logo H_MainTitle H_LoginANDSignUp" 120px
+  /180px 1fr 320px;
+  grid-area: Header;
+}
+nav{
+  text-align: center;
+  grid-area: Nav;
+  /* background-color: red; */
+}
+section{
+  grid-area: Section;
+  color: white;
+}
+aside{
+  grid-area: Aside;
+  background-color: green;
+}
+footer{
+  display: inline;
+  grid-area: Footer;
+  background-color: gray;
+}
+Button{
+  width: 100%;
+  height: 15%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* 메인 타이틀 글귀 사용시 다시할것
+kimujin{
+  color:navy;
+  animation-name: change_color_1;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes change_color_1 {
+  0% {color: navy;}
+  33% {color: gold;}
+  66% {color: darkgray;}
+  100% {color: navy;}
+}
+pcm{
+  color: gold;
+  animation-name: change_color_2;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes change_color_2 {
+  0% {color: gold;}
+  33% {color: darkgray;}
+  66% {color: navy;}
+  100% {color: gold;}
+}
+kth{
+  color: darkgray;
+  animation-name: change_color_3;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes change_color_3 {
+  0% {color: darkgray;}
+  33% {color: navy;}
+  66% {color: gold;}
+  100% {color: darkgray;}
+}*/
+/* Class Css */
+.Area{
+  height: 100vh;
+  display: grid;
+  grid-template:
+  "Header Header" 120px
+  "Nav Section" 1fr
+  "Footer Footer" 50px
+  /180px 1fr;
+}
+.header_grid_logo{
+  grid-area: H_Logo;
+}
+.header_grid_mainTitle{
+  padding-top: 20px;
+  text-align: center;
+  grid-area: H_MainTitle;
+}
+.header_grid_loginAndSignUp{
+  padding-top: 30px;
+  grid-area: H_LoginANDSignUp;
+  text-align: right;
+  font-family: "굴림체";
+}
+.header_grid_loginAndSignUp>form{
+  text-align: center;
+  font-family: "굴림체"
+}
+.mb1{
+  display:inline-block;
+  width: 33%;
+  font-size: 2px;
+}
+.mb2{
+  display:inline-block;
+  width: 50%;
+  font-size: 2px;
+}
+.cover {
+  width: 100%;
+  font-family: 휴먼엑스포;
+}
+.cover>h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.cover>ul {
+  border-top: 1px solid tomato;
+  border-bottom: 2px solid gray;
+}
+.cover>ul>li>a {
+  font-size: 0.9rem;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  color: gray;
+  border-top: 1px solid lightgray;
+}
+.cover>ul>li>a:hover{
+  background-color: lightgray;
+  color: black;
+  /* background-image: url('btn.png');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: right center; */ 이동하기 이미지 넣고싶으면 쓰면 되는거
+}
+.mb1, .mb2{
+  background-color: black;
+}
+
+/* Id Css */
+#Logo1{
+  width: 180px;
+  height: 120px;
+}
+#logout_Btn{
+  width: 50%;
+}
+
+#SignDown{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  header{
+    /* background-color: skyblue; */
+    display: grid;
+    grid-template:
+    "H_Logo H_MainTitle H_LoginANDSignUp" 120px
+    /180px 250px 320px;
+    grid-area: Header;
+  }
+  .cover{
+    width: 100%;
+  }
+  .cover>h1{
+    display: none;
+  }
+  .cover>ul {
+    border-top: 2px solid tomato;
+    border-bottom: none;
+    width: 100%;
+    display: inline-block;
+  }
+  .cover>ul>li {
+    float: left;
+    width: 20%;
+    border-bottom: 1px solid gray;
+  }
+  .Area{
+    grid-template:
+    "Header" 120px
+    "Nav" 82px
+    "Section" 1fr
+    "Footer" 50px
+    /1fr;/* grid template columns : 150px 1fr*/
+  }
+  .header_grid_mainTitle{
+    text-align: center;
+    font-size: 0.72rem;
+    grid-area: H_MainTitle;
+  }
+  .header_grid_loginAndSignUp{
+    padding-top: 30px;
+    padding-left: 25px;
+    grid-area: H_LoginANDSignUp;
+    font-family: "굴림체";
+  }
+  .header_grid_loginAndSignUp>#LMf1{
+    padding-left: 2%;
+    grid-area: H_LoginANDSignUp;
+    font-family: "굴림체";
+  }
+  #logout_Btn{
+    width: 20%;
+  }
+  .cover>ul>li>a {
+    height: 25px;
+    line-height: 25px;
+  }
+  #Logo1{
+    width:150px;
+    height: 120px;
+  }
+  Nav{
+    display: inline-block;
+  }
+}

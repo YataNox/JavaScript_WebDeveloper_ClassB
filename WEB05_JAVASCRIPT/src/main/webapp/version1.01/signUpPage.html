@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="signUp_Layout_Disign.css">
+    <title>회원가입</title>
+  </head>
+  <body>
+    <div class="Area">
+      <section>
+        <h1>회원가입</h1>
+          <form action="first_iframe.html" onsubmit="return checkSignup()"accept-charset="utf-8">
+            <table id="siup">
+              <tr>
+                <th>ID</th>
+                <td colspan="1"><input id="id1" type="email" name="UseId" value="" placeholder="이메일 형식으로 입력하세요" required></td>
+                <td colspan="3"><button type="button" name="IdChk" onclick="CheckId()">중복체크</button></td>
+              </tr>
+
+              <tr>
+                <th>이름</th>
+                <td colspan="4"><input id="name1" type="text" name="UserName" value="" required></td>
+              </tr>
+
+              <tr>
+                <th>PassWord</th>
+                <td colspan="4"><input id="pw1" type="password" name="UsePw" value="" required placeholder="8자리 이상 작성해주세요."></td>
+              </tr>
+
+              <tr>
+                <th>PassWord확인</th>
+                <td colspan="3"><input id="pw2" type="password" name="UsePwcheck" value="" required ></td>
+                <td><input type="button" name="Pwchk" value="비밀번호 일치 확인" onclick="CheckPw()"></td>
+              </tr>
+
+              <tr>
+                <th>생년월일</th>
+                <td> <input type="date" name="date" min="1900-01-01" max="2100-12-31"></td>
+                <td colspan="3"></td>
+              </tr>
+
+              <tr>
+                <th>성별</th>
+                <td colspan="4"><label for="man">남자</label><input type="radio" name="gender" id="man" checked>
+                <label for="woman">여자</label><input type="radio" name="gender" id="woman"></td>
+              </tr>
+
+              <tr>
+                <th>전화번호</th>
+                <td colspan="1"><input id="ph1" type="phone" name="ph1" value="" required></td>
+                <td colspan="3">
+                  <select>
+            			     <option>선택</option>
+            			     <option>SKT</option>
+            			     <option>KT</option>
+            			     <option>LGU+</option>
+            		  </select></td>
+              </tr>
+              <tr>
+                <th>E-mail</th>
+                <td colspan="4"><input type="email" name="user_email" placeholder="정확한 메일주소입력">
+            		<label><input type="checkbox" name="public"> 공개</label><br></td>
+              </tr>
+              <tr>
+                <th>Homepage</th>
+                <td colspan="4"><input type="url" name="user_email" placeholder="정확한 URL입력">
+            		<label> <input type="checkbox" name="public"> 공개</label><br></td>
+              </tr>
+              <tr>
+                <th>개인 정보 공개</th>
+                <td colspan="4"> <label><input type="checkbox" name="public2"> 정보 공개</label></td>
+              </tr>
+              <tr>
+                <th>자기소개</th>
+                <td colspan="4"><textarea style="resize: none;" name="name" rows="5" cols="40"></textarea> </td>
+              </tr>
+            </table>
+
+            <div class="button">
+                <input type="submit" name="webSm" value="회원가입">
+                <input type="reset" name="webrs" value="초기화">
+            </div>
+          </form>
+      </section>
+    </div>
+    <script>
+      function checkSignup(){
+        for(let i = 0; i < window.localStorage.length; i++){
+            if(document.getElementById('name1').value === window.localStorage.getItem(window.localStorage.key(i)).split(',')[1] &&
+              document.getElementById('ph1').value === window.localStorage.getItem(window.localStorage.key(i)).split(',')[2]){
+              alert("한 사람당 한 개의 아이디만 생성 가능합니다.");
+              return false;
+            }
+            else{
+              continue;
+            }
+        }
+        var run1 = CheckId();
+        var run2 = CheckPw();
+        var sum = 0;
+        if(run1 === false){
+          sum += 1;
+        }
+        if(run2 === false){
+          sum += 3;
+        }
+
+        if(sum === 1){
+          alert("아이디를 중복없게 기입해주세요.");
+          sum = 0;
+          return false;
+        }
+        else if(sum === 3){
+          alert("비밀번호를 정확하게 기입해주세요.");
+          sum = 0;
+          return false;
+        }
+        else if(sum === 4){
+          alert("아이디와 비밀번호를 정확하게 기입을 해주세요.");
+          sum = 0;
+          return false;
+        }
+        else{
+          let arr =[document.getElementById('pw1').value, document.getElementById('name1').value, document.getElementById('ph1').value];
+          alert("회원가입 성공");
+          window.localStorage.setItem(document.getElementById('id1').value, arr);
+          return true;
+        }
+      }
+
+      function CheckId(){
+        var id1 = document.getElementById('id1').value;
+        if(id1 === ""){
+          alert("아이디를 작성해주세요");
+          return false;
+        }
+        if(id1.indexOf('@') === -1)
+        {
+          alert("형식에 맞게 작성해주세요");
+          return false;
+        }
+        if(window.localStorage.key(0)===null){
+          alert("이 아이디를 사용가능합니다.");
+          return true;
+        }
+        for(let i = 0; i <= window.localStorage.length-1; i++){
+          if(id1 === window.localStorage.key(i)){
+              alert("아이디가 중복됩니다.");
+              return false;
+          }
+          else
+          {
+            if(i === window.localStorage.length-1){
+              alert("이 아이디를 사용가능합니다.");
+              return true;
+            }
+            else{
+              continue;
+            }
+          }
+        }
+      }
+
+      function CheckPw(){
+        var p1 = document.getElementById('pw1').value;
+        var p2 = document.getElementById('pw2').value;
+
+        if(p1.length < 8){
+          alert("입력한 글자가 8글자 이상이어야 합니다");
+          return false;
+        }
+
+        if(p1 !== p2){
+          alert("비밀번호가 일치하지 않습니다.");
+          return false;
+        }
+        else{
+          alert("비밀번호가 일치합니다.");
+        }
+      }
+    </script>
+  </body>
+</html>

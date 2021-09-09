@@ -1,0 +1,85 @@
+/* Tag Css */
+html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+header{
+  height: 100vh;
+  background-color: skyblue;
+  display: grid;
+  grid-template:
+  "H_Logo H_MainTitle H_LoginANDSignUp" 100vh
+  /150px 1fr 200px  ;
+  grid-area: Header;
+}
+nav{
+  text-align: center;
+  grid-area: Nav;
+  background-color: red;
+}
+section{
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-bottom: 10px;
+  grid-area: Section;
+}
+section>.signup>form{
+  text-align: left;
+}
+aside{
+  grid-area: Aside;
+  background-color: green;
+}
+footer{
+  grid-area: Footer;
+  background-color: gray;
+}
+
+/* Class Css */
+.Area{
+  height: 100vh;
+  display: grid;
+  grid-template:
+  "Section Section" 1fr
+  /1fr;
+}
+.header_grid_logo{
+  grid-area: H_Logo;
+}
+.header_grid_mainTitle{
+  text-align: center;
+  grid-area: H_MainTitle;
+}
+.header_grid_loginAndSignUp{
+  padding-top: 30px;
+  grid-area: H_LoginANDSignUp;
+  text-align: right;
+  font-family: "굴림체"
+}
+.signup{
+  padding-left: 20%;
+  background-color: gray;
+}
+.signup>form>label{
+  display: inline-block;
+  width:50px;
+}
+/* Id Css */
+#Logo1{
+  width: 150px;
+  height: 120px;
+}
+table{
+  background-color: white;
+}
+th{
+  text-align: left;
+}
