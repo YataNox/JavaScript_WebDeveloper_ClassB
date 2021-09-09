@@ -22,12 +22,12 @@
             position: absolute;
             width: 73px; height: 30px;
             top: 0px; left: 0px;
-            border: 1px dashed red;
+            /* border: 1px dashed red; */
         }
         #arrow{
             position: absolute;
             width: 23px; height: 30px;
-            border: 1px dashed blue;
+            /* border: 1px dashed blue; */
             right: 0px; top: 0px;
             background-image:url(images/ico_movie_171115.png);
             background-position: -277px -320px;
@@ -39,13 +39,14 @@
             border: 1px solid black;
             box-shadow: 2px 2px 5px gray;
             background-color: white;
-            overflow: scroll;
-            display:none;
+            overflow-y: scroll; overflow-x: hidden;
+            /* display:none; */
+            visibility: hidden; 
         }
         #dropmenu div{
             font-weight: bold;
             height: 45px; width: 100%;
-            border: 1px dashed red;
+            /* border: 1px dashed red; */
             line-height: 45px;
         }
         #dropmenu div:hover{
@@ -53,12 +54,26 @@
         }
     </style>
     <script>
+        var Mstate = false;
         function clickTitle(){
-            document.getElementById("dropmenu").style.display="inline";
+            if(Mstate == false){ // 메뉴가 숨겨진 상태 -> 화면에 표시
+                viewMenu(); 
+            }
+            else{ // 메뉴가 표시된 상태 -> 숨김
+                hideMenu();
+            }
+        }
+        function viewMenu(){
+            document.getElementById("dropmenu").style.visibility="visible";  
+            Mstate = true;
+        }
+        function hideMenu(){
+            document.getElementById("dropmenu").style.visibility="hidden";
+            Mstate = false;
         }
         function selectMenu(n){
             document.getElementById("num").innerHTML = "+" + n;
-            document.getElementById("dropmenu").style.display="none";
+            hideMenu();
         }
     </script>
 </head>
