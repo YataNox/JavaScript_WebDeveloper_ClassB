@@ -35,33 +35,48 @@
                 margin: 0 auto;
                 top: 350px;
             }
-            #remot ul{
-                list-style: none;
-                margin: 0; padding: 0px;
-                display: inline-block;
-            }
-            #remot ul li{
-                float: left;
+            #remot div{
+                position: relative;
                 width: 25px; height: 25px;
                 background-color: white;
                 border-radius: 50%;
-                margin: 13px 10px;
+                margin: 13px auto;
                 line-height: 25px;
                 text-align: center;
                 cursor: pointer;
             }
         </style>
+        <script>
+            var val;
+            var Xpx = 0;
+            var play = false;
+            function start_stop(){
+                if(play){ // play -> stop
+                    document.getElementById("btn").innerHTML="▶";
+                    // #btn 태그가 갖는 글자를 대입하는 글자로 바꿉니다.
+                    clearInterval(val);
+                    play = false;
+                }
+                else{ // stop -> play
+                    document.getElementById("btn").innerHTML="■";
+                    val = setInterval(function(){
+                        document.getElementById("view").style.left=Xpx+"px";
+                        Xpx-=600;
+                        if(Xpx == -4800)
+                        Xpx = 0;
+                    }, 1000);
+                    play = true;
+                }
+            }
+        </script>
     </head>
-    <body>
+    <body onload="start_stop()">
         <div id="base">
             <div id="view">
                 <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
             </div>
             <div id="remot">
-                <ul>
-                    <li onclick="play()">▶</li>
-                    <li onclick="stop()">■</li>
-                </ul>
+                <div id="btn" onclick="start_stop()">■</div>
             </div>
         </div>
     </body>
