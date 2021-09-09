@@ -6,8 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>28_SelectTag.html</title>
     <style>
-        
+        #base{
+            position: relative;
+            width: 500px; height: 300px;
+            border: 1px solid black;
+        }
+        #title{
+            position: relative; width: 100px; height: 30px;
+            border: 1px solid gray;
+            left: 100px; top: 50px;
+            line-height: 30px;
+            font-size: 120%; font-weight: bold;
+        }
+        #num{
+            position: absolute;
+            width: 73px; height: 30px;
+            top: 0px; left: 0px;
+            border: 1px dashed red;
+        }
+        #arrow{
+            position: absolute;
+            width: 23px; height: 30px;
+            border: 1px dashed blue;
+            right: 0px; top: 0px;
+            background-image:url(images/ico_movie_171115.png);
+            background-position: -277px -320px;
+        }
+        #dropmenu{
+            position: absolute;
+            width: 300px; height: 250px;
+            top: 80px; left: 100px;
+            border: 1px solid black;
+            box-shadow: 2px 2px 5px gray;
+            background-color: white;
+            overflow: scroll;
+            display:none;
+        }
+        #dropmenu div{
+            font-weight: bold;
+            height: 45px; width: 100%;
+            border: 1px dashed red;
+            line-height: 45px;
+        }
+        #dropmenu div:hover{
+            background-color: #AAAAAA;
+        }
     </style>
+    <script>
+        function clickTitle(){
+            document.getElementById("dropmenu").style.display="inline";
+        }
+        function selectMenu(n){
+            document.getElementById("num").innerHTML = "+" + n;
+            document.getElementById("dropmenu").style.display="none";
+        }
+    </script>
 </head>
 <body>
     <div id="base">
@@ -27,5 +80,12 @@
             <div onclick="selectMenu(82)">+82 &nbsp;&nbsp;&nbsp; Korea</div>
         </div>
     </div>
+    <br><br><br><br><br><br>
+    <select style="width: 200px; font-size: 120%;">
+        <option value="1">United States</option>
+        <option value="63">Philippines</option>
+        <option value="62">Indonesia</option>
+        <option value="82">Korea</option>
+    </select>
 </body>
 </html>
