@@ -88,6 +88,21 @@
                 header.style.color = 'orange';
                 header.style.backgroundColor = 'yellow';
             }
+
+            function removeDom(){
+                var willRemove = document.getElementById('header_1');
+                document.body.removeChild(willRemove); // body 문서 객체 바로 아래 수준에 제거하고자 하는 문서 객체가 있을 때 사용 가능한 코드
+                var willRemove2 = document.getElementById('header_2');
+                willRemove2.parentNode.removeChild(willRemove2); // 일반적으로 문서 객체를 제거 할 때 사용하는 코드
+            }
+
+            function viewDateTime(){
+                var clock = document.getElementById('clock');
+                setInterval(function(){
+                    var date = new Date();
+                    clock.innerHTML = date.toLocaleString();
+                }, 1000);
+            }
         </script>
     </head>
     <body>
@@ -101,6 +116,8 @@
         <input type="button" value="문서객체가져오기1" onclick="getDom()">
         <input type="button" value="문서객체가져오기2" onclick="getDom2()">
         <input type="button" value="문서객체스타일조작" onclick="changeStyle()">
+        <input type="button" value="문서객체제거" onclick="removeDom()">
+        <input type="button" value="날짜시간표시" onclick="viewDateTime()">
         <br><br>
     </body>
 </html>
